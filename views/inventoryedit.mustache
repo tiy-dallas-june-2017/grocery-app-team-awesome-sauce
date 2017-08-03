@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Add Item</title>
+  </head>
+  <body>
+    <h2>Edit Item</h2>
+    <form method="post" action="/inventory">
+      <p>{{item}}</p>
+      <input type="text" name="itemName" ></input>
+      <p>{{quantity}}</p>
+      <input type="text" name="quantity"></input>
+      <p>{{price}}</p>
+      <input type="text" name="price"></input>
+        <button type=submit name="cancel"><a href="/inventory">Cancel</a></button>
+    </form>
+    <form action="/inventory/edit/{{_id}}">
+      <button type=submit name="edit">Add</button>
+    </form>
+  </body>
+</html>
+<!--Stefanie-->

@@ -1,34 +1,23 @@
 const router = require('express').Router();
 const inventoryModel = require('../models/data');
+const bodyParser = require('body-parser');
 
+//gets for inventory and inventory detail.
 router.get('/inventory', function(req, res){
-
-  res.render('inventory');
-
+  console.log('in router for getting all inventory')
+  inventoryModel.getAllInventory(function(err, data){
+    console.log(data);
+    res.render('inventory', { inventory : data});
+  })
 });
 
-router.get('/inventorydetail', function(req, res){
-
-  res.render('inventorydetail');
+//get just one for editing purposes.
+router.get('/inventorydetail/:id', function(req, res){
+  console.log('in router for getting detail')
+  inventoryModel.getOne(function(err, data){
+    res.render('inventorydetail', { inventory : data});
+  })
 });
-
-router.get('/inventory/add/:id', function(req, res){
-  // inventoryModel.insert(req.params.id,function(err, result){
-  res.render('inventorydetail');
-  });
-
-
-
-router.post('/inventory/add',function(req, res){
-  // inventoryModel.insert(req.params.id,function(err, result){
-    res.redirect('/inventory');
-  });
-
-
-router.post('/inventory/delete/:id',function(req,res){
-  // inventoryModel.remove(req.params.id, function(err, result){
-    res.redirect('/inventory');
-  });
 
 
 //   const db = mongo.db();

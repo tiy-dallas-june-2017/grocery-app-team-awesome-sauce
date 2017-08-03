@@ -2,8 +2,9 @@ const express = require('express');
 const mustache = require('mustache-express');
 const router = require('express').Router();
 const expressValidator = require('express-validator');
-const schedule = require('./routes/schedule.js');
-const inventory = require('./routes/inventory.js');
+const schedule = require('./routes/schedule');
+const inventory = require('./routes/inventory');
+const mongo = require('./mongo');
 
 const bodyParser = require('body-parser');
 
@@ -18,9 +19,22 @@ app.set('views', __dirname + '/views');
 app.use(express.static('public'));
 
 app.use('/', schedule);
-app.use('/', inventory);
-//let url = "mongodb://localhost:27017/";
 
-app.listen(4040, function(){
-  console.log('listening to port 4040');
-});
+app.use('/', inventory);
+//through inventory.js in routes
+
+//this now has my server name. --Stefanie
+let url = "mongodb://localhost:27017/inventorydb";
+mongo.connect(url, function(err, database){
+  if(err) {
+    console.log("error", err);
+    throw err;
+  }
+  app.listen(4040, function(){
+    console.log('listening to port 4040');
+  });
+})
+
+// app.listen(4040, function(){
+//   console.log('listening to port 4040');
+// });
