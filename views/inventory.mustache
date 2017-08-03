@@ -9,11 +9,21 @@
 
     {{#item}}
     <button>Edit Placeholder<button> <!--No logic for this button yet-->
-      <div>{{quantity}}</div>
-      <div>{{price}}</div>
-      <div>{{.}}</div>
+    <table>
+      <tr>
+        <th>Item</th>
+        <th>Quantity</th>
+        <th>Price</th>
+      </tr>
+      <tr>
+        <td>{{item}}</td>
+        <td><a href="blank">Edit</a></td>
+        <td>{{quantity}}</td>
+        <td>{{price}}</td>
+      </tr>
+    </table>
     {{/item}}
-      <button type=submit name="additem"><a href="./views/inventorydetail">Add an Item</a></button>
+      <a href="/inventorydetail">Add an Item</a>
 
 
   </body>
