@@ -1,5 +1,6 @@
 const express = require('express');
 const mustache = require('mustache-express');
+const router = require('express').Router();
 const expressValidator = require('express-validator');
 const schedule = require('./routes/schedule.js');
 const inventory = require('./routes/inventory.js');
