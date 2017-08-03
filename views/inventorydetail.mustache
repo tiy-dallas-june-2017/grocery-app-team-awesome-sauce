@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Add Item</title>
+  </head>
+  <body>
+    <h2>Add Item to Inventory</h2>
+    <form method="post" action="/inventory">
+      <p>Item Name</p>
+      <input type="text" name="itemName" ></input>
+      <p>Quantity</p>
+      <input type="text" name="quantity"></input>
+      <p>Price</p>
+      <input type="text" name="price"></input>
+        <button type=submit name="cancel"><a href="./views/inventory">Cancel</a></button>
+    </form>
+    <form action="/inventory/add/{{_id}}">
+      <button type=submit name="add">Add</button>
+    </form>
+
+  </body>
+</html>
+<!--Stefanie-->

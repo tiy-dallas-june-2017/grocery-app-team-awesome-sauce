@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Inventory</title>
+  </head>
+  <body>
+    <h2>Current Inventory</h2>
+
+    {{#item}}
+    <button>Edit Placeholder<button> <!--No logic for this button yet-->
+      <div>{{quantity}}</div>
+      <div>{{price}}</div>
+      <div>{{.}}</div>
+    {{/item}}
+      <button type=submit name="additem"><a href="./views/inventorydetail">Add an Item</a></button>
+
+
+  </body>
+</html>
+<!--Stefanie-->
