@@ -5,7 +5,8 @@ router.get('/schedule', function(req, res) {
 });
 
 router.get('/schedule/editschedule', function(req, res){
-  res.render('addSchedule')
+  res.render('addSchedule');
+});  
 
 router.get('/addemployee',function(req, res) {
   res.render('addemployee');
