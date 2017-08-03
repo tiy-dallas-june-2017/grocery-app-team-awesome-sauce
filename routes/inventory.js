@@ -1,20 +1,20 @@
 const router = require('express').Router();
-const inventory = require('../models/data');
+const inventoryModel = require('../models/data');
 
-router.get('/todos', function(req, res){
-todoModel.getAll(function(err,data){
-  res.render('index',{todos: data});
+router.get('/inventory', function(req, res){
+inventoryModel.getAll(function(err,data){
+  res.render('index',{inventory: data});
   });
 });
-router.post('/todos',function(req, res){
-  todoModel.insert(req.body,function(err, result){
-    res.redirect('/todos');
+router.post('/inventory',function(req, res){
+  inventoryModel.insert(req.body,function(err, result){
+    res.redirect('/inventory');
   });
 
 });
-router.post('/todos/delete/:id',function(req,res){
-  todoModel.remove(req.params.id, function(err, result){
-    res.redirect('/todos');
+router.post('/inventory/delete',function(req,res){
+  inventoryModel.remove(req.params.id, function(err, result){
+    res.redirect('/inventory');
   });
 });
 
