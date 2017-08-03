@@ -15,4 +15,5 @@ app.set('views', __dirname + '/views');
 app.use(express.static('public'));
 
 app.listen(4040, function(){
-  console.log('listening to port 4040')
+  console.log('listening to port 4040');
+}
