@@ -6,6 +6,11 @@ router.get('/inventory', function(req, res){
   res.render('inventory');
 
 });
+
+router.get('/inventorydetail', function(req, res){
+
+  res.render('inventorydetail');
+});
 router.post('/inventory',function(req, res){
   inventoryModel.insert(req.body,function(err, result){
     res.redirect('/inventory');

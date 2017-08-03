@@ -1,0 +1,53 @@
+#wrapper {
+  width: 960px;
+  margin: 80px auto;
+  display: flex;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+}
+
+h2 {
+  flex-basis: 100%;
+}
+
+h3 {
+  flex-basis: 100%;
+}
+
+.text, .edit {
+  border: thin solid lightgrey;
+  padding: 10px;
+}
+
+.text {
+  flex-basis: 29%;
+}
+
+p {
+  margin: 0;
+}
+
+form {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+input {
+  flex-basis: 55%;
+  height: 20px;
+  width: 250px;
+}
+
+#cancel {
+  flex-basis: 50%;
+  margin-top: 20px
+}
+
+#save {
+  flex-basis: 50%;
+  margin-top: 20px;
+}
+
+h4 {
+  margin: 0;
+}
