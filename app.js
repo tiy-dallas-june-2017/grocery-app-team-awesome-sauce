@@ -4,25 +4,14 @@ const mustache = require('mustache-express');
 const bodyParser = require('body-parser')
 
 const app = express();
-app.use(bodyParser.urlencoded({extended:false}));
+app.use(bodyParse.urlencoded({ extended: false }));
 
-
-
-const mustacheExpressInstance = mustache();
-mustacheExpressInstance.cache = null;
-
-app.engine('mustache', mustacheExpressInstance);
+app.engine('mustache', mustache() );
 
 app.set('view engine', 'mustache');
-app.set('views',__dirname + '/views');
+app.set('views', __dirname + '/views');
 
 app.use(express.static('public'));
 
-
-
-
-
-  app.listen(4444, function() {
-    console.log('Team awesome sauce');
-  });
-});
+app.listen(4040, function(){
+  console.log('listening to port 4040')
