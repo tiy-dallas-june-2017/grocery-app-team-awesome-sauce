@@ -5,7 +5,7 @@ const expressValidator = require('express-validator');
 const bodyParser = require('body-parser')
 
 const app = express();
-app.use(bodyParse.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: false }));
 
 app.engine('mustache', mustache() );
 
@@ -16,4 +16,4 @@ app.use(express.static('public'));
 
 app.listen(4040, function(){
   console.log('listening to port 4040');
-}
+});
