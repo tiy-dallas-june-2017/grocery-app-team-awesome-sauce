@@ -13,6 +13,8 @@
     "express": "^4.15.3",
     "express-validator": "^3.2.1",
     "mongodb": "^2.2.30",
-    "mustache-express": "^1.2.5"
+    "mustache-express": "^1.2.5",
+    "nodemon": "^1.11.0",
+    "router-express": "^1.5.2"
   }
 }

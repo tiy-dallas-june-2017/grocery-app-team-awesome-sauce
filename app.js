@@ -3,7 +3,7 @@ const mustache = require('mustache-express');
 const expressValidator = require('express-validator');
 const schedule = require('./routes/schedule.js');
 
-const bodyParser = require('body-parser')
+const bodyParser = require('body-parser');
 
 const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
