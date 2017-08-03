@@ -1,5 +1,3 @@
-const mongo = require('mongo').MongoClient;
-=======
 const mongoClient = require('mongodb').MongoClient;
 const ObjectID = require('mongodb').ObjectID;
 let database =null;

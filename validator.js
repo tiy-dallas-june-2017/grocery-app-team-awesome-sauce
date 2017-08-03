@@ -9,8 +9,8 @@ req.check('name', 'Your name can not be longer than 100 characters').isLength({ 
 
 req.getValidatorResult().then(function(result){
   if(result.isEmpty()){
-    res.render('/error', req.body)
+    res.render('/erroraddemployee', req.body)
   } else {
-    res.render('/inventorydetail', data)
+    res.render('/addemployee', data)
   };
 });
