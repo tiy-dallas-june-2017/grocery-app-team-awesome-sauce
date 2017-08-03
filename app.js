@@ -19,6 +19,8 @@ app.set('views',__dirname + '/views');
 
 app.use(express.static('public'));
 
+app.use('/', employeesschedule);
+
 
 
 
