@@ -1,7 +1,8 @@
 const express = require('express');
 const mustache = require('mustache-express');
+const expressValidator = require('express-validator');
 
-const bodyParse = require('body-parser');
+const bodyParser = require('body-parser')
 
 const app = express();
 app.use(bodyParse.urlencoded({ extended: false }));
