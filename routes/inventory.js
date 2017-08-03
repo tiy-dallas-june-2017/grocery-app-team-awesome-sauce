@@ -2,9 +2,9 @@ const router = require('express').Router();
 const inventoryModel = require('../models/data');
 
 router.get('/inventory', function(req, res){
-inventoryModel.getAll(function(err,data){
-  res.render('inventory',{inventory: data});
-  });
+
+  res.render('inventory');
+
 });
 router.post('/inventory',function(req, res){
   inventoryModel.insert(req.body,function(err, result){
