@@ -2,6 +2,7 @@ const express = require('express');
 const mustache = require('mustache-express');
 const expressValidator = require('express-validator');
 const schedule = require('./routes/schedule.js');
+const inventory = require('./routes/inventory.js');
 
 const bodyParser = require('body-parser');
 
