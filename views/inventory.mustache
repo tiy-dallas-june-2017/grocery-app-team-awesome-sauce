@@ -7,8 +7,7 @@
   <body>
     <h2>Current Inventory</h2>
 
-    {{#item}}
-    <button>Edit Placeholder<button> <!--No logic for this button yet-->
+    {{#inventory}}
     <table>
       <tr>
         <th>Item</th>
@@ -22,7 +21,7 @@
         <td>{{price}}</td>
       </tr>
     </table>
-    {{/item}}
+    {{/inventory}}
       <a href="/inventorydetail">Add an Item</a>
 
 
