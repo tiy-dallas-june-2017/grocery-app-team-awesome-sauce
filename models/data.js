@@ -39,8 +39,10 @@ function insert(item, callback){
   })
 }
 
-//needs deletion function.
-/////////////////////////
+function remove(id, callback){
+  const db = mongo.db();
+  db.collection('inventory').delete
+}
 
 
 
@@ -49,5 +51,6 @@ function insert(item, callback){
 module.exports = {
 getAllInventory: getAllInventory,
 insert : insert,
-getEmployeeSchedule: getEmployeeSchedule
+getEmployeeSchedule: getEmployeeSchedule,
+remove : remove
 }

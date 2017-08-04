@@ -6,16 +6,16 @@
   </head>
   <body>
     <h2>Edit Item</h2>
+    {{#inventory}}
     <form method="post" action="/inventory">
       <p>{{item}}</p>
-      <input type="text" name="itemName" ></input>
+      <input type="text" name="item" ></input>
       <p>{{quantity}}</p>
       <input type="text" name="quantity"></input>
       <p>{{price}}</p>
       <input type="text" name="price"></input>
+      {{/inventory}}
         <button type=submit name="cancel"><a href="/inventory">Cancel</a></button>
-    </form>
-    <form action='/inventory/{{_id}}'>
       <button type=submit name="edit">Add</button>
     </form>
   </body>
