@@ -30,8 +30,8 @@ db.collection('inventory').find({ _id : new mongo.objectID(id) }, function(err, 
   })
 }
 
-//insertion
-function insert(callback){
+//insertion// this function is called by inventory.js
+function insert(item, callback){
   const db = mongo.db();
   db.collection('inventory').insert(item, function(err, result){
     console.log(err, result);
