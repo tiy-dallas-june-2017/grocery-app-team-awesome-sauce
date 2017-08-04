@@ -30,6 +30,7 @@ router.post('/inventory',function(req, res){
 router.post('/inventory/add',function(req, res){
   inventoryModel.insert(req.body,function(err, result){
     res.redirect('/inventory'); // will redirect to inventory page with each submit.
+  })
 });
 
 router.post('/delete/:id', function(req, res) {
