@@ -8,18 +8,20 @@
   <body>
     <main id='wrapper'>
       <h2>Employee Schedule</h2>
+      {{#schedule}}
       <div class='text'>
-        <p>Name</p>
+        <p>{{name}}</p>
       </div>
       <div class='edit'>
         <p><a href='#'>edit</a></p>
       </div>
       <div class="text">
-        <p>In Time</p>
+        <p>{{time_in}}</p>
       </div>
       <div class="text">
-        <p>Out Time</p>
+        <p>{{time_out}}</p>
       </div>
+      {{/schedule}}
       <h3><a href='/addemployee'>Add New Item</a></h3>
     </main>
   </body>
