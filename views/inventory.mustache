@@ -8,23 +8,15 @@
     <h2>Current Inventory</h2>
 
     {{#inventory}}
-    <table>
-      <tr>
-        <th>Item</th>
-        <th>Quantity</th>
-        <th>Price</th>
-      </tr>
-      <tr>
-        <td>{{item}}</td>
-        <td><a href="blank">Edit</a></td>
-        <td>{{quantity}}</td>
-        <td>{{price}}</td>
-      </tr>
-    </table>
+      <div class="container">
+        <div>Item:{{item}}</div>
+        <div><a href="blank">Edit</a></div>
+        <div>Quantity: {{quantity}}</div>
+        <div>Price: {{price}}</div>
+        <hr>
     {{/inventory}}
-      <a href="/inventorydetail">Add an Item</a>
-
+      </div>
+      <div><a href='/inventorydetail'>Add an Item</a></div>
 
   </body>
 </html>
-<!--Stefanie-->
