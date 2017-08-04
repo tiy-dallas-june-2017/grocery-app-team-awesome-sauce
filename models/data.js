@@ -1,6 +1,15 @@
 const mongo = require('../mongo');
 
+/**************************
+  schedule stuff
+**************************/
 
+function getEmployeeSchedule(callback) {
+  const db = mongo.db();
+  db.collection('schedule').find({}).toArray(function(err, data) {
+    callback(err, data);
+  });
+}
 
 /////////////////////
 //inventory
@@ -39,6 +48,6 @@ function insert(callback){
 
 module.exports = {
 getAllInventory: getAllInventory,
-insert : insert
-
+insert : insert,
+getEmployeeSchedule: getEmployeeSchedule
 }
