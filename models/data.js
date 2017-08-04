@@ -11,6 +11,13 @@ function getEmployeeSchedule(callback) {
   });
 }
 
+function insertEmployee(schedule, callback) {
+  const db = mongo.db();
+  db.collection('schedule').insert(schedule, function(err, result) {
+    callback(err, result);
+  });
+}
+
 /////////////////////
 //inventory
 
@@ -49,5 +56,6 @@ function insert(callback){
 module.exports = {
 getAllInventory: getAllInventory,
 insert : insert,
-getEmployeeSchedule: getEmployeeSchedule
+getEmployeeSchedule: getEmployeeSchedule,
+insertEmployee: insertEmployee
 }
