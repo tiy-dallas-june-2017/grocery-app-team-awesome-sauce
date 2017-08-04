@@ -1,14 +1,30 @@
-***! This is the static home page !***
+
 
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
     <title>Home Page</title>
+    <style>
+    body{margin-left: auto;margin-right: auto;}
+    img{width: 1000px;}
+    a{text-decoration: none;margin-left: 10px; margin-right: 10px; margin-top: 20px;font-family: sans-serif;}
+    a {color:black;font-weight: bold;}
+    a:visited {color:black;}
+    a:hover {color:blue;}
+    a:active {color:black;}
+    header{text-align: center;background-color: orange;height: 50px;}
+    </style>
   </head>
   <body>
-    <h1>Home Page</h1>
-    <a href="/schedule">Employee Schedule</a>
-    <a href="/inventory">Inventory</a>
+    <header>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/schedule">Employee Schedule</a>
+        <a href="/inventory">Inventory</a>
+      </nav>
+    </header>
+    <img src="http://i.imgur.com/Yv2tYmi.jpg" alt="awesome sauce">
+
   </body>
 </html>
