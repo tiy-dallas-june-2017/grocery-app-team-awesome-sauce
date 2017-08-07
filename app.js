@@ -24,7 +24,7 @@ app.use('/', inventory);
 //through inventory.js in routes
 
 //this now has my server name. --Stefanie
-let url = "mongodb://localhost:27017/inventory";
+let url = "mongodb://localhost:27017/inventorydb";
 mongo.connect(url, function(err, database){
   if(err) {
     console.log("error", err);
