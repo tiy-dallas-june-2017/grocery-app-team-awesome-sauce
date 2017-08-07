@@ -1,4 +1,12 @@
+const express = require('express')
 const router = require('express').Router();
+const expressValidator = require('express-validator');
+const bodyParser = require('body-parser');
+const app = express();
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(expressValidator());
+=======
 const inventoryModel = require('../models/data')
 const bodyParser = require('body-parser');
 
@@ -7,9 +15,24 @@ router.get('/schedule', function(req, res) {
     res.render('employeeschedule', { schedule: data });
   });
 });
+<<<<<<< HEAD
 
 router.get('/addemployee', function(req, res) {
   res.render('addemployee');
+=======
+//Attempted to assign validation to this router. No errors, but not running at the same time.
+router.get('/addemployee',function(req, res) {
+  req.check('name', 'Name can not be empty').notEmpty();
+  //Checks for name input.
+
+  req.getValidationResult().then(function(result){
+    if(result.isEmpty()){
+      console.log('There was an error!')
+    } else {
+      res.render('addemployee');
+    }
+  });
+>>>>>>> e27e6c00572bbd677505e1b3966c55087024dc96
 });
 
 router.get('/editemployee/:id', function(req, res) {
