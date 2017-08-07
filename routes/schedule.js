@@ -6,20 +6,14 @@ const app = express();
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(expressValidator());
-=======
-const inventoryModel = require('../models/data')
-const bodyParser = require('body-parser');
+
+const inventoryModel = require('../models/data');
 
 router.get('/schedule', function(req, res) {
   inventoryModel.getEmployeeSchedule(function(err, data) {
     res.render('employeeschedule', { schedule: data });
   });
 });
-<<<<<<< HEAD
-
-router.get('/addemployee', function(req, res) {
-  res.render('addemployee');
-=======
 //Attempted to assign validation to this router. No errors, but not running at the same time.
 router.get('/addemployee',function(req, res) {
   req.check('name', 'Name can not be empty').notEmpty();
@@ -32,7 +26,6 @@ router.get('/addemployee',function(req, res) {
       res.render('addemployee');
     }
   });
->>>>>>> e27e6c00572bbd677505e1b3966c55087024dc96
 });
 
 router.get('/editemployee/:id', function(req, res) {
