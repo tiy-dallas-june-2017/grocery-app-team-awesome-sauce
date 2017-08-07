@@ -12,7 +12,7 @@ router.get('/inventory', function(req, res){
 });
 
 //get just one for editing purposes.
-router.get('/inventorydetail/:id', function(req, res){
+router.get('/inventorydetail/:_id', function(req, res){
   console.log('in router for getting detail')
   inventoryModel.getOne(function(err, data){
     res.render('inventorydetail', { inventory : data});
@@ -26,12 +26,14 @@ router.get('/inventorydetail', function(req, res){
 });
 
 //for editing an inventory item...
-router.get('/inventoryedit', function(req, res){
+router.get('/inventoryedit/:_id', function(req, res){
+  inventoryModel.getOne(req.params._id, function(err, data){
   console.log('in router for getting edit inventory')
-    res.render('inventoryedit');
+    res.render('inventoryedit', data);
+  });
 });
 
-//posting and deleting to inventory database instance.
+//posting to inventory database instance.
 //handles post actions from edit page via edit button.
 router.post('/inventory',function(req, res){
   inventoryModel.insert(req.body,function(err, result){
@@ -42,10 +44,9 @@ router.post('/inventory',function(req, res){
 
 //delete by id from inventorydetails page via delete button.
 //after deletion, go back to inventory.
-router.post('/inventory/inventorydetail/delete/:id', function(req, res) {
+router.post('/inventoryedit/:_id', function(req, res) {
   inventoryModel.remove(req.params.id, function(err, result) {
     res.render('inventory');
-    res.redirect('/inventory');
   });
 });
 

@@ -5,18 +5,22 @@
     <title>Add Item</title>
   </head>
   <body>
-    <h2>Edit Item</h2>
-    {{#inventory}}
+    <h2>Edit or Delete an Item</h2>
+    <hr>
+    <h3>You selected:</h3>
+    <p>{{item}}</p>
+    <hr>
+
     <form method="post" action="/inventory">
-      <p>{{item}}</p>
-      <input type="text" name="item" ></input>
-      <p>{{quantity}}</p>
+      <p>Current item:{{item}}</p>
+      <input type="text" name="item"></input>
+      <p>Current Quantity:{{quantity}}</p>
       <input type="text" name="quantity"></input>
-      <p>{{price}}</p>
+      <p>Current Price:{{price}}</p>
       <input type="text" name="price"></input>
-      {{/inventory}}
         <button type=submit name="cancel"><a href="/inventory">Cancel</a></button>
-      <button type=submit name="edit">Add</button>
+      <button type="submit" name="edit">Complete Edit</button>
+      <button type="delete" name="delete">Delete Item</button>
     </form>
   </body>
 </html>

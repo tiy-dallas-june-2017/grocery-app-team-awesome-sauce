@@ -20,6 +20,7 @@ function insertEmployee(schedule, callback) {
 
 /////////////////////
 //inventory
+/////////////////////
 
 //get ALL inventory from collection 'inventory' witin db.
 function getAllInventory(callback){
@@ -30,10 +31,12 @@ db.collection('inventory').find({}).toArray(function(err, data){
 }
 
 //for getting one by id
-function getOne(callback){
+function getOne(id, callback){
 const db = mongo.db();
-db.collection('inventory').find({ _id : new mongo.objectID(id) }, function(err, data){
+db.collection('inventory').findOne({ _id : new mongo.ObjectID(id) }, function(err, data){
+    console.log('data from id callback in data.js route', err, data);
   callback(err, data);
+
   })
 }
 
@@ -46,11 +49,21 @@ function insert(item, callback){
   })
 }
 
+//remove an item from db.
 function remove(id, callback){
   const db = mongo.db();
-  db.collection('inventory').delete
+  db.collection('inventory').delete(item, function(err, result){
+    console.log(err, result);
+    callback(err, result);
+  })
 }
 
+function edit(id, callback){
+  const db = mongo.db();
+  db.collection('inventory').update(item, function(err, result){
+    callback(err, result);
+  })
+}
 
 
 
@@ -60,5 +73,7 @@ getAllInventory: getAllInventory,
 insert : insert,
 getEmployeeSchedule: getEmployeeSchedule,
 remove : remove,
-insertEmployee: insertEmployee
+insertEmployee: insertEmployee,
+edit: edit,
+getOne: getOne
 }
