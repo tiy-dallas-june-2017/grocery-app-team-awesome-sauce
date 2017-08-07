@@ -8,12 +8,15 @@ router.get('/schedule', function(req, res) {
   });
 });
 
-router.get('/addemployee',function(req, res) {
+router.get('/addemployee', function(req, res) {
   res.render('addemployee');
 });
 
-router.get('/editemployee', function(req, res) {
-  res.render('editemployee');
+router.get('/editemployee/:id', function(req, res) {
+  inventoryModel.editEmployee(req.params.id, function(err, data) {
+    console.log(data);
+    res.render('editemployee', data);
+  });
 });
 
 router.post('/schedule', function(req, res) {

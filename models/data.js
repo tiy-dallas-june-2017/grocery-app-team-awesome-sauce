@@ -18,6 +18,13 @@ function insertEmployee(schedule, callback) {
   });
 }
 
+function editEmployee(id, callback) {
+  const db = mongo.db();
+  db.collection('schedule').findOne({ _id : new mongo.ObjectID(id) }, function(err, data) {
+    callback(err, data);
+  });
+}
+
 /////////////////////
 //inventory
 
@@ -60,5 +67,6 @@ getAllInventory: getAllInventory,
 insert : insert,
 getEmployeeSchedule: getEmployeeSchedule,
 remove : remove,
-insertEmployee: insertEmployee
+insertEmployee: insertEmployee,
+editEmployee
 }
