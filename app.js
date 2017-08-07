@@ -5,11 +5,11 @@ const expressValidator = require('express-validator');
 const schedule = require('./routes/schedule');
 const inventory = require('./routes/inventory');
 const mongo = require('./mongo');
-
 const bodyParser = require('body-parser');
 
 const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(expressValidator());
 
 app.engine('mustache', mustache() );
 
