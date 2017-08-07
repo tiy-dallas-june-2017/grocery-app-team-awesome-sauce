@@ -1,6 +1,22 @@
 const mongo = require('../mongo');
 
+/**************************
+  schedule stuff
+**************************/
 
+function getEmployeeSchedule(callback) {
+  const db = mongo.db();
+  db.collection('schedule').find({}).toArray(function(err, data) {
+    callback(err, data);
+  });
+}
+
+function insertEmployee(schedule, callback) {
+  const db = mongo.db();
+  db.collection('schedule').insert(schedule, function(err, result) {
+    callback(err, result);
+  });
+}
 
 /////////////////////
 //inventory
@@ -21,8 +37,8 @@ db.collection('inventory').find({ _id : new mongo.objectID(id) }, function(err, 
   })
 }
 
-//insertion
-function insert(callback){
+//insertion// this function is called by inventory.js
+function insert(item, callback){
   const db = mongo.db();
   db.collection('inventory').insert(item, function(err, result){
     console.log(err, result);
@@ -30,8 +46,10 @@ function insert(callback){
   })
 }
 
-//needs deletion function.
-/////////////////////////
+function remove(id, callback){
+  const db = mongo.db();
+  db.collection('inventory').delete
+}
 
 
 
@@ -39,6 +57,8 @@ function insert(callback){
 
 module.exports = {
 getAllInventory: getAllInventory,
-insert : insert
-
+insert : insert,
+getEmployeeSchedule: getEmployeeSchedule,
+remove : remove,
+insertEmployee: insertEmployee
 }

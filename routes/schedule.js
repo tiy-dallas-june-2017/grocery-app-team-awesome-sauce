@@ -6,11 +6,16 @@ const app = express();
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(expressValidator());
+=======
+const inventoryModel = require('../models/data')
+const bodyParser = require('body-parser');
 
 router.get('/schedule', function(req, res) {
-  res.render('employeeschedule');
+  inventoryModel.getEmployeeSchedule(function(err, data) {
+    res.render('employeeschedule', { schedule: data });
+  });
 });
-
+//Attempted to assign validation to this router. No errors, but not running at the same time.
 router.get('/addemployee',function(req, res) {
   req.check('name', 'Name can not be empty').notEmpty();
   //Checks for name input.
@@ -21,6 +26,16 @@ router.get('/addemployee',function(req, res) {
     } else {
       res.render('addemployee');
     }
+  });
+});
+
+router.get('/editemployee', function(req, res) {
+  res.render('editemployee');
+});
+
+router.post('/schedule', function(req, res) {
+  inventoryModel.insertEmployee(req.body, function (err, result) {
+    res.redirect('/schedule');
   });
 });
 

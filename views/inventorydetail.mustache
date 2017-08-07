@@ -8,17 +8,14 @@
     <h2>Add Item to Inventory</h2>
     <form method="post" action="/inventory">
       <p>Item Name</p>
-      <input type="text" name="itemName" ></input>
+      <input type="text" name="item" ></input>
       <p>Quantity</p>
       <input type="text" name="quantity"></input>
       <p>Price</p>
       <input type="text" name="price"></input>
-        <button type=submit name="cancel"><a href="/inventory">Cancel</a></button>
+        <a href="/inventory">Cancel</a>
+        <button type=submit>Add</button>
     </form>
-    <form method="post" action="/inventory/add/{{_id}}">
-      <button type=submit name="add">Add</button>
-    </form>
-
   </body>
 </html>
 <!--Stefanie-->
