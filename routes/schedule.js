@@ -15,30 +15,31 @@ router.get('/schedule', function(req, res) {
   });
 });
 
-//Attempted to assign validation to this router. No errors, but not running at the same time.
-router.get('/addemployee',function(req, res) {
-  req.check('name', 'Name can not be empty').notEmpty();
-  //Checks for name input.
-
-  req.getValidationResult().then(function(result){
-    if(result.isEmpty()){
-      console.log('There was an error!')
-    } else {
-      res.render('addemployee');
-    }
-  });
+router.get('/addemployee', function(req, res) {
+  res.render('addemployee');
 });
 
 router.get('/editemployee/:id', function(req, res) {
   inventoryModel.editEmployee(req.params.id, function(err, data) {
-    console.log(data);
     res.render('editemployee', data);
   });
 });
 
 router.post('/schedule', function(req, res) {
-  inventoryModel.insertEmployee(req.body, function (err, result) {
-    res.redirect('/schedule');
+  req.check('name', 'Name can not be empty').notEmpty();
+
+  req.getValidationResult().then(function(result) {
+    if(result.isEmpty()) {
+      //  we are valid.
+
+    } else {
+      // we are not valid.
+      console.log('There was an error!')
+      data.errors = result.array();
+    }
+    inventoryModel.insertEmployee(req.body, function (err, result) {
+      res.redirect('/schedule');
+    });
   });
 });
 
