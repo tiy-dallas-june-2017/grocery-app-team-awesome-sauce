@@ -10,11 +10,11 @@
       <h2>Edit Employee Schedule</h2>
       <form class="" action="/schedule" method="post">
         <p>Name</p>
-        <input type="text" name="name" placeholder="Name ...">
+        <input type="text" name="name" value='{{name}}'>
         <p>Start Time</p>
-        <input type="datetime-local" name="time_in">
+        <input type="datetime-local" name="time_in" value="{{time_in}}">
         <p>End Time</p>
-        <input type="datetime-local" name="time_out">
+        <input type="datetime-local" name="time_out" value="{{time_out}}">
         <div id='cancel'>
           <h4><a href='/schedule'>cancel</a></h4>
         </div>

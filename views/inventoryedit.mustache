@@ -13,13 +13,15 @@
 
     <form method="post" action="/inventory">
       <p>Current item:{{item}}</p>
-      <input type="text" name="item"></input>
+      <input type="text" name="item" value='item' placeholder='{{item}}'></input>
       <p>Current Quantity:{{quantity}}</p>
-      <input type="text" name="quantity"></input>
+      <input type="text" name="quantity" value='quantity' placeholder='{{quantity}}'></input>
       <p>Current Price:{{price}}</p>
-      <input type="text" name="price"></input>
+      <input type="text" name="price" value='price' placeholder='{{price}}'></input>
         <button type=submit name="cancel"><a href="/inventory">Cancel</a></button>
       <button type="submit" name="edit">Complete Edit</button>
+    </form>
+    <form type='sumbit' name='delete'>
       <button type="delete" name="delete">Delete Item</button>
     </form>
   </body>
