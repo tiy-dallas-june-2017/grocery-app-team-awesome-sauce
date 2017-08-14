@@ -25,6 +25,18 @@ router.get('/editemployee/:id', function(req, res) {
   });
 });
 
+router.post('/editemployee/:id', function(req, res) {
+  inventoryModel.updateEmployee(req.params.id, req.body, function(err, results) {
+    res.redirect('/schedule');
+  });
+});
+
+router.post('/delete/employee/:id', function(req, res) {
+  inventoryModel.removeEmployee(req.params.id, req.body, (err, data) => {
+    res.redirect('/schedule');
+  });
+});
+
 router.post('/schedule', function(req, res) {
   req.check('name', 'Name can not be empty').notEmpty();
 

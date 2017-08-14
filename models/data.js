@@ -25,6 +25,22 @@ function editEmployee(id, callback) {
   });
 }
 
+function updateEmployee(id, data, callback) {
+  console.log(data, id);
+  const db = mongo.db();
+  db.collection('schedule').updateOne( {_id: new mongo.ObjectID(id)}, {$set: data}, function(err, result) {
+    callback(err, result);
+  });
+}
+
+function removeEmployee(id, data, callback){
+  console.log(data, id);
+  const db = mongo.db();
+  db.collection('schedule').deleteOne({_id: new mongo.ObjectID(id)}, function(err, result){
+    callback(err, result);
+  });
+}
+
 /////////////////////
 //inventory
 /////////////////////
@@ -83,6 +99,7 @@ remove : remove,
 insertEmployee: insertEmployee,
 edit: edit,
 getOne: getOne,
-editEmployee
-
+editEmployee,
+removeEmployee,
+updateEmployee
 }
