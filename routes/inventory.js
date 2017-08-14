@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 router.get('/inventory', function(req, res){
   console.log('in router for getting all inventory')
   inventoryModel.getAllInventory(function(err, data){
-    console.log(data);
+    // console.log(data);
     res.render('inventory', { inventory : data});
   })
 });
@@ -26,16 +26,16 @@ router.get('/inventorydetail', function(req, res){
 });
 
 //get item for editing
-router.get('/inventoryedit/:_id', function(req, res){
-  inventoryModel.getOne(req.params._id, function(err, data){
+router.get('/inventoryedit/:id', function(req, res){
+  inventoryModel.getOne(req.params.id, function(err, data){
   console.log('in router for getting edit inventory')
     res.render('inventoryedit', data);
   });
 });
 
 //edit item and update it.
-router.post('/inventoryedit/:_id', function(req, res){
-  inventoryModel.update(req.params._id, function(err, result){
+router.post('/inventoryedit/:id', function(req, res){
+  inventoryModel.update(req.params.id, req.body, function(err, result){
     res.redirect('/inventory')
   })
 })
@@ -51,9 +51,9 @@ router.post('/inventory',function(req, res){
 
 //delete by id from inventorydetails page via delete button.
 //after deletion, go back to inventory.
-router.post('/inventoryedit/delete/:_id', function(req, res) {
-  inventoryModel.remove(req.params._id, function(err, result) {
-    res.render('/inventory');
+router.post('/delete/:id', function(req, res) {
+  inventoryModel.remove(req.params.id, req.body,  function(err, result) {
+    res.redirect('/inventory');
   });
 });
 

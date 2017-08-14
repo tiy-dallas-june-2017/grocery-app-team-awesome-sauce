@@ -11,7 +11,7 @@
     <p>{{item}}</p>
     <hr>
 
-    <form method="post" action="/inventory">
+    <form method="post" action="/inventoryedit/{{_id}}">
       <p>Current item:{{item}}</p>
       <input type="text" name="item" value='{{item}}'></input>
       <p>Current Quantity:{{quantity}}</p>
@@ -21,8 +21,9 @@
         <button type=submit name="cancel"><a href="/inventory">Cancel</a></button>
       <button type="submit" name="edit">Complete Edit</button>
     </form>
-    <form method='submit' action='/inventory'>
-      <button type="delete" name="delete">Delete Item</button>
+
+    <form method='post' action='/delete/{{_id}}'>
+      <button type="submit" name="delete">Delete Item</button>
     </form>
   </body>
 </html>

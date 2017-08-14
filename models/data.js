@@ -34,7 +34,7 @@ function updateEmployee(id, data, callback) {
 }
 
 function removeEmployee(id, data, callback){
-  console.log(data, id);
+  // console.log(data, id);
   const db = mongo.db();
   db.collection('schedule').deleteOne({_id: new mongo.ObjectID(id)}, function(err, result){
     callback(err, result);
@@ -47,16 +47,16 @@ function removeEmployee(id, data, callback){
 
 //get ALL inventory from collection 'inventory' witin db.
 function getAllInventory(callback){
-const db = mongo.db();
-db.collection('inventory').find({}).toArray(function(err, data){
+  const db = mongo.db();
+  db.collection('inventory').find({}).toArray(function(err, data){
   callback(err, data);
   })
 }
 
 //for getting one by id
 function getOne(id, callback){
-const db = mongo.db();
-db.collection('inventory').findOne({ _id : new mongo.ObjectID(id) }, function(err, data){
+  const db = mongo.db();
+  db.collection('inventory').findOne({ _id : new mongo.ObjectID(id) }, function(err, data){
     console.log('data from id callback in data.js route', err, data);
   callback(err, data);
 
@@ -73,19 +73,20 @@ function insert(item, callback){
 }
 
 //remove an item from db.
-function remove(id, callback){
+function remove(id, data, callback){
+  console.log("THISTHIBHGDFVFEWVFAEFA", data, id);
   const db = mongo.db();
-  db.collection('inventory').delete(item, function(err, result){
+  db.collection('inventory').deleteOne({_id: new mongo.ObjectID(id)}, function(err, result){
     console.log(err, result);
     callback(err, result);
-  })
+  });
 }
 
-function edit(id, callback){
+function update(id, data, callback){
   const db = mongo.db();
-  db.collection('inventory').update(item, function(err, result){
+  db.collection('inventory').updateOne( {_id: new mongo.ObjectID(id)}, {$set : data}, function(err, result){
     callback(err, result);
-  })
+  });
 }
 
 
@@ -97,7 +98,7 @@ insert : insert,
 getEmployeeSchedule: getEmployeeSchedule,
 remove : remove,
 insertEmployee: insertEmployee,
-edit: edit,
+update,
 getOne: getOne,
 editEmployee,
 removeEmployee,
