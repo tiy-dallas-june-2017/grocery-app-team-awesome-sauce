@@ -8,7 +8,7 @@
   <body>
     <main id='wrapper'>
       <h2>Edit Employee Schedule</h2>
-      <form class="" action="/schedule" method="post">
+      <form action="/editemployee/{{_id}}" method="post">
         <p>Name</p>
         <input type="text" name="name" value='{{name}}'>
         <p>Start Time</p>
@@ -20,8 +20,10 @@
         </div>
         <div id='save'>
           <button type="submit">save</button>
-          <button class='delete' type='submit'>delete</button>
         </div>
+      </form>
+      <form action='/delete/employee/{{_id}}' method='post'>
+        <button class='delete' type='submit'>delete</button>
       </form>
     </main>
   </body>
