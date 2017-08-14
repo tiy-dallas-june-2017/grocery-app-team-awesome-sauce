@@ -25,13 +25,20 @@ router.get('/inventorydetail', function(req, res){
     res.render('inventorydetail');
 });
 
-//for editing an inventory item...
+//get item for editing
 router.get('/inventoryedit/:_id', function(req, res){
   inventoryModel.getOne(req.params._id, function(err, data){
   console.log('in router for getting edit inventory')
     res.render('inventoryedit', data);
   });
 });
+
+//edit item and update it.
+router.post('/inventoryedit/:_id', function(req, res){
+  inventoryModel.update(req.params._id, function(err, result){
+    res.redirect('/inventory')
+  })
+})
 
 //posting to inventory database instance.
 //handles post actions from edit page via edit button.
@@ -44,9 +51,9 @@ router.post('/inventory',function(req, res){
 
 //delete by id from inventorydetails page via delete button.
 //after deletion, go back to inventory.
-router.post('/inventoryedit/:_id', function(req, res) {
-  inventoryModel.remove(req.params.id, function(err, result) {
-    res.render('inventory');
+router.post('/inventoryedit/delete/:_id', function(req, res) {
+  inventoryModel.remove(req.params._id, function(err, result) {
+    res.render('/inventory');
   });
 });
 
